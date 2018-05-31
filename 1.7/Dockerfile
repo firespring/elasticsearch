@@ -37,7 +37,7 @@ RUN set -x \
 	&& dpkg-divert --rename /usr/lib/sysctl.d/elasticsearch.conf \
 	\
 	&& apt-get update \
-	&& apt-get install -y --no-install-recommends "elasticsearch=$ELASTICSEARCH_DEB_VERSION" \
+	&& apt-get install -y --allow-unauthenticated --no-install-recommends "elasticsearch=$ELASTICSEARCH_DEB_VERSION" \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV PATH /usr/share/elasticsearch/bin:$PATH
